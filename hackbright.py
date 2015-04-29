@@ -151,6 +151,28 @@ def get_student_info(title):
 
     return students_info
 
+def get_student_names():
+
+    QUERY = """
+        SELECT first_name, last_name, github FROM Students
+        """
+
+    db_cursor.execute(QUERY)
+    student_names = db_cursor.fetchall()
+
+    return student_names
+
+def get_project_titles():
+    
+    QUERY = """
+        SELECT title FROM Projects
+        """
+
+    db_cursor.execute(QUERY)
+    project_titles = db_cursor.fetchall()
+
+    return project_titles
+
 
 if __name__ == "__main__":
     handle_input()

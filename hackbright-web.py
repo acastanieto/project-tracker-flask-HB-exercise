@@ -5,6 +5,15 @@ import hackbright
 app = Flask(__name__)
 
 
+@app.route("/")
+def home_page():
+
+    student_names = hackbright.get_student_names()
+    titles = hackbright.get_project_titles()
+
+    return render_template("homepage.html", student_names=student_names, titles=titles)
+
+
 @app.route("/student-search")
 def get_student_form():
     """Show form for searching for a student."""
