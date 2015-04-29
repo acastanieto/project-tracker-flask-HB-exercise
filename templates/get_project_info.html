@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Info</title>
+</head>
+<body>
+<h1>Project Title:  {{ title }}</h1>
+
+<form action="/project">
+<label>List the project name you are looking for: 
+    <input type="text" name="title">
+</label>
+
+<input type="submit" value="Display Project">
+</form>
+
+{% if title %}
+<p>Maximum grade:  {{ max_grade }}</p>
+
+<p>Project description:  {{ description }}</p>
+{% endif %} 
+
+<p>Students who have completed the project and the grades received</p>
+    {% for grade in grades %}
+    <ul>
+        <li><a href="/student?github={{github}}">{{grade[0]}} {{grade[1]}}</a> received a {{grade[2]}}</li>
+    </ul>
+    {% endfor %}
+
+</body>
+</html>

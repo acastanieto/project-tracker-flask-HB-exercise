@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>Student Info</title>
+</head>
+<body>
+<h1>{{ first }} {{ last }}</h1>
+
+<p>GitHub Account: {{ github }}</p>
+
+{% if projects %}
+<p>Here are the projects and grades</p>
+    {% for project in projects %}
+    <ul>
+        <li><a href="/project?title={{project[0]}}">{{project[0]}}</a>, {{project[1]}}</li>
+    </ul>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
