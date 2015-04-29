@@ -43,10 +43,10 @@ def get_project_info():
 def project_info():
     title = request.args.get("title")
     description, max_grade = hackbright.project_info(title)
-    grades = hackbright.students_grades(title)
-    github = hackbright.get_github(grades[0], grades[1])
+    # grades = hackbright.students_grades(title)
+    students_info = hackbright.get_student_info(title)
 
-    return render_template("get_project_info.html", title=title, description=description, max_grade = max_grade, grades=grades, github=github)
+    return render_template("get_project_info.html", title=title, description=description, max_grade = max_grade, students_info=students_info)
 
 if __name__ == "__main__":
     app.run(debug=True)

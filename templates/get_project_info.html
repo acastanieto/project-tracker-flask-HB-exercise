@@ -21,9 +21,9 @@
 {% endif %} 
 
 <p>Students who have completed the project and the grades received</p>
-    {% for grade in grades %}
+    {% for student in students_info %}
     <ul>
-        <li><a href="/student?github={{github}}">{{grade[0]}} {{grade[1]}}</a> received a {{grade[2]}}</li>
+        <li><a href="/student?github={{student[2]}}">{{student[0]}} {{student[1]}}</a> received a {{student[3]}}</li>
     </ul>
     {% endfor %}
 

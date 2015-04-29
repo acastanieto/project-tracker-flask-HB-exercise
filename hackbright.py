@@ -138,16 +138,18 @@ def students_grades(title):
 
     return grades
 
-def get_github(first_name, last_name):
+def get_student_info(title):
 
     QUERY = """
-        SELECT github FROM Students WHERE first_name = ? AND last_name = ?
+        SELECT first_name, last_name, github, grade FROM Grades 
+        JOIN Students ON github = student_github
+        WHERE project_title = ?
         """
 
-    db_cursor.execute(QUERY, (first_name, last_name))
-    github = db_cursor.fetchone()
+    db_cursor.execute(QUERY, (title,))
+    students_info = db_cursor.fetchall()
 
-    return github
+    return students_info
 
 
 if __name__ == "__main__":
